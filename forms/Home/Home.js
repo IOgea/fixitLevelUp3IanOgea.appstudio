@@ -12,7 +12,8 @@ btnHomeLoan.onclick = function(){
 //function to calculate car payment
 function carLoanPayment(principle,months,rate){
   rate = rate/1200
-  payment = principle * (rate*((1+rate)**months))/(((1+rate)**months)-1)
+  console.log(rate)
+  payment = principle * (rate*((1+rate)**months))/((1+rate)**months-1)
   payment = Math.round(payment)
   return payment
   }
@@ -21,6 +22,6 @@ function carLoanPayment(principle,months,rate){
 btnCalc.onclick = function(){
 if (inptTime.placeholder == "Enter the number of months"){
   lblOutput.value = `A car loan for $${inptAmount.value} over ${inptTime.value} months at ${inptIntRate.value}% interest would have a monthly payment of 
-  ${carLoanPayment(parseInt(inptAmount.value),parseInt(inptTime.value),parseInt(inptIntRate.value))}`
+  ${carLoanPayment(parseFloat(inptAmount.value),parseFloat(inptTime.value),parseFloat(inptIntRate.value))}`
   }
   }
